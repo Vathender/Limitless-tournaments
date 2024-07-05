@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+    <title>Limitless - Gaming & Tournaments</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Your existing HTML content -->
+
+    <!-- sign in section start  -->
+    <section class="sign-in-section pb-120 pt-120 mt-sm-15 mt-10">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="form-area">
+                        <h1 class="tcn-1 text-center cursor-scale growUp mb-10" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;" >SIGN UP</h1>
+                        <form action="#" class="sign-in-form" id="signup-form">
+                            <div class="single-input mb-6">
+                                <input type="email" id="email" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;" placeholder="Enter your email">
+                            </div>
+                            <div class="single-input mb-6">
+                                <input type="password" id="password" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;" placeholder="Enter your password">
+                            </div>
+                            <div class="text-center">
+                                <button type="button" class="bttn py-3 px-6 rounded bgp-1" id="register" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Sign Up</button>
+                            </div>
+                            <br>
+                            <div class="text-center">
+                                <p>or</p>
+                            </div>
+                            <br>
+                            <div class="text-center">
+                                <button type="button" class="bttn py-3 px-6 rounded bgp-1" id="google-login-btn"><i class="ti ti-brand-google fs-2xl"></i></button>
+                            </div>
+                        </form>
+                        <p class="tcn-4 text-center mt-lg-10 mt-6"style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Already have an account? <a style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;" href="signin.html"
+                                class="text-decoration-underline tcp-1">Sign In</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- sign in section end  -->
+
+    <!-- ==== js dependencies start ==== -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/gsap.min.js"></script>
+    <script src="assets/js/ScrollTrigger.min.js"></script>
+    <script src="assets/js/lenis.min.js"></script>
+    <script src="assets/js/SplitText.min.js"></script>
+    <script src="assets/js/vanilla-tilt.js"></script>
+    <script src="assets/js/ScrollMagic.min.js"></script>
+    <script src="assets/js/animation.gsap.min.js"></script>
+    <script src="assets/js/apexcharts.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/magnific-popup.js_1.1.0_jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyDz2kvMDwx6fHRj2tkzWACLE6wyxICAshs",
+        authDomain: "limitless-login-2db57.firebaseapp.com",
+        projectId: "limitless-login-2db57",
+        storageBucket: "limitless-login-2db57.appspot.com",
+        messagingSenderId: "306658783455",
+        appId: "1:306658783455:web:75431e75a32ce069ee796a",
+        measurementId: "G-XZHKZP2J7H"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    auth.languageCode = 'en';
+    const analytics = getAnalytics(app);
+    const provider = new GoogleAuthProvider();
+
+    // Google login button
+    const googleLogin = document.getElementById("google-login-btn");
+    googleLogin.addEventListener("click", function(event) {
+        event.preventDefault(); 
+        signInWithPopup(auth, provider)
+            .then((result) => {
+                const user = result.user;
+                console.log(user);
+                const userInfo = {
+                    displayName: user.displayName,
+                    email: user.email,
+                    photoURL: user.photoURL
+                };
+                sessionStorage.setItem('userInfo', JSON.stringify(userInfo));
+                window.location.href = "Index2.html";
+            })
+            .catch((error) => {
+                const errorMessage = error.message;
+                console.error(errorMessage);
+                alert(errorMessage);
+            });
+    });
+
+    // Registration button
+    const registerButton = document.getElementById("register");
+    registerButton.addEventListener("click", function(event) {
+        event.preventDefault();
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+  
+        
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                console.log(user);
+                alert("Registration successful!");
+                const userInfo = {
+              
+                    email: user.email,
+                    photoURL: 'default-profile-pic-url' // If you have a default profile pic URL, you can set it here
+                };
+                sessionStorage.setItem('userInfo', JSON.stringify(userInfo));
+                window.location.href = "signin.html";
+            })
+            .catch((error) => {
+                const errorMessage = error.message;
+                console.error(errorMessage);
+                alert(errorMessage);
+            });
+    });
+</script>
+</html>

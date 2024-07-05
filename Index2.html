@@ -1,0 +1,1313 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+    <title>Limitless - Gaming & Tournaments</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        body {
+            overflow: auto !important;
+        }
+    </style>
+        <script>
+            function logout() {
+                sessionStorage.removeItem('userInfo');
+                window.location.href = 'signin.html';
+            }
+        </script>
+</head>
+
+<body>
+
+    <!-- Preloader -->
+
+
+    <!-- cursor effect-->
+    <div class="cursor"></div>
+    <!-- Header area  -->
+    <header class="header-section w-100 bgn-4">
+        <div class="py-sm-6 py-3 mx-xxl-20 mx-md-15 mx-3">
+            <div class="d-flex align-items-center justify-content-between gap-xxl-10 gap-lg-8 w-100">
+                <nav
+                    class="navbar-custom d-flex gap-lg-6 align-items-center flex-column flex-lg-row justify-content-start justify-content-lg-between w-100">
+                    <div class="top-bar w-100 d-flex align-items-center gap-6">
+                        <button class="navbar-toggle-btn d-block d-lg-none" type="button">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                        <a class="navbar-brand d-flex align-items-center gap-4" href="index.html">
+                            <img class="w-150 logo1" src="assets/img/Limitless.png" alt="favicon">
+                            <img class="w-100 logo2" src="assets/img/Limitless_transparent.png" alt="logo">
+                        </a>
+                    </div>
+                    <div class="navbar-toggle-item w-100 position-lg-relative">
+                        <ul class="custom-nav gap-3 gap-lg-7 cursor-scale growDown2 ms-xxl-10" data-lenis-prevent>
+                            <li class="menu-link">
+                                <a href="index.html" , style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Home</a>
+                            </li>
+                            <li class="menu-item">
+                                <button style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Tournament</button>
+                                <ul class="sub-menu">
+                                    <li class="menu-link">
+                                        <a href="tournaments.html" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Tournaments</a>
+                                    </li>
+                                    <li class="menu-link">
+                                        <a href="tournaments-details.html" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Tournaments Details</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="menu-link">
+                                <a href="game.html" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Game</a>
+                            </li>
+                            <li class="menu-item">
+                                <button>Teams</button>
+                                <ul class="sub-menu">
+                                    <li class="menu-link">
+                                        <a href="teams.html" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Teams</a>
+                                    </li>
+                                    <li class="menu-link">
+                                        <a href="teams-details.html" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Teams Details</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="menu-item">
+                                <button style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;" >pages</button>
+                                <ul class="sub-menu">
+                                    <li class="menu-link">
+                                        <a href="signup.html" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Sign Up</a>
+                                    </li>
+                                    <li class="menu-link">
+                                        <a href="signin.html" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Sign In</a>
+                                    </li>
+                                    <li class="menu-link">
+                                        <a href="error.html" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Error</a>
+                                    </li>
+                                    <li class="menu-link">
+                                        <a href="faq.html" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Faq</a>
+                                    </li>
+                                    <li class="menu-link">
+                                        <a href="terms-condition.html" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Terms Conditions</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="header-btn-area d-flex align-items-center gap-sm-6 gap-3">
+               
+                  
+                     <div class="header-profile pointer">
+                        <div class="profile-wrapper d-flex align-items-center gap-3">
+                            <i class="ti ti-user"></i>
+                            
+                            <span class="user-name d-none d-xxl-block text-nowrap"><span id ="displayName" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;"></span></span>
+                       
+                            <i class="ti ti-chevron-down d-none d-xxl-block"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-section end -->
+
+    
+
+    <!-- connect your Wallet section start -->
+    <div class="connect-wallet-section position-fixed top-0 start-0 w-100 vh-100">
+        <div class="connect-wallet-overlay position-absolute top-0 start-0 w-100 h-100"></div>
+        <div class="vh-100 wallet-wrapper d-center">
+            <div class="wallet-area pt-lg-8 pt-sm-6 pt-4 pb-lg-20 pb-sm-10 pb-6 px-lg-15 px-sm-8 px-3 bgn-4 rounded-5 ">
+                <div class="mb-lg-7 mb-sm-5 mb-3 d-flex justify-content-end">
+                    <i class="ti ti-circle-x display-four fw-normal pointer wallet-close-btn"></i>
+                </div>
+                <h3 class="tcn-1 cursor-scale growDown title-anim mb-lg-20 mb-sm-10 mb-6">
+                    Register/Signup
+                </h3>
+                <div class="wallet-option pb-20">
+                    <ul class="d-grid gap-sm-8 gap-4">
+                        <li class="wallet-item p-sm-6 p-2 bgn-3 rounded-4">
+                            <a href="signup.html" class="d-between">
+                                <span style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;"><i class="ti ti-user"></i> Sign Up</span>
+                              
+                            </a>
+                        </li>
+                        <li class="wallet-item p-sm-6 p-2 bgn-3 rounded-4">
+                            <a href="signin.html" class="d-between">
+                                <span style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;"><i class="ti ti-user"></i> Sign In</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- connect your Wallet section end -->
+
+    <!-- user account details popup start  -->
+    <div class="user-account-popup p-4">
+        <div class="account-items d-grid gap-1" data-tilt>
+        
+            <div id="userNameDisplay" class="mb-3" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif; font-weight: bold; color: white;"></div>
+          <button class="bttn account-item" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;" onclick="logout()" style="font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Logout</button>
+        </div>
+    </div>>Logout</button>
+        </div>
+    </div>
+     
+    <!-- user account details popup end  -->
+
+    <!-- Hero Section start  -->
+    <section class="hero-section pt-20 pb-120 position-relative">
+        <div class="gradient-bg"></div>
+        <div class="gradient-bg2"></div>
+        <div class="star-area">
+    
+      
+        </div>
+
+        <div class="container pt-120 pb-15">
+            <div class="row g-6 justify-content-between">
+                <div class="col-lg-5 col-md-6 col-sm-8">
+                    <div class="hero-content">
+                        <ul class="d-flex gap-3 fs-2xl fw-semibold heading-font mb-5 list-icon title-anim">
+                            <li>Participate</li>
+                            <li>Earn</li>
+                            <li>Enjoy</li>
+                        </ul>
+                        <h1 class="hero-title display-one tcn-1 cursor-scale growUp mb-10">
+                            GAMER'S
+                            <span class="d-block tcp-1">ULTIMATE</span>
+                            TOURNAMENTS
+                        </h1>
+                       
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-2 col-4 order-md-last order-lg-1">
+                    <div class="hero-banner-area">
+                        <div class="hero-banner-bg">
+                          
+                        </div>
+                        <div>
+                            <img src="assets/img/wallpaper2.jpg" alt="banner">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-5 col-md-6 order-md-1 order-lg-last">
+                    <div class="hero-content">
+                        <div class="card-area py-lg-8 py-6 px-lg-6 px-3 rounded-5 tilt mb-10" data-tilt>
+                            <h3 class="tcn-1 dot-icon cursor-scale growDown mb-6 title-anim">
+                                Last Winners
+                            </h3>
+                            <div class="hr-line mb-6"></div>
+                            <div class="card-items d-grid gap-5">
+                                <div class="card-item d-flex align-items-center gap-4">
+                                   
+                                    <div class="card-info">
+                                        <h4 class="card-title fw-semibold tcn-1 mb-1 cursor-scale growDown2 title-anim">
+                                            Noxiboi
+                                        </h4>
+                                        <p class="card-text tcs-1 fw-medium" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;" >+₹600</p>
+                                    </div>
+                                </div>
+                                <div class="hr-line"></div>
+                                <div class="card-item d-flex align-items-center gap-4">
+                              
+                                    <div class="card-info">
+                                        <h4 class="card-title fw-semibold tcn-1 mb-1 cursor-scale growDown2 title-anim">
+                                           Zanny
+                                        </h4>
+                                        <p class="card-text tcs-1 fw-medium" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">+₹220</p>
+                                    </div>
+                                </div>
+                                <div class="hr-line"></div>
+                                <div class="card-item d-flex align-items-center gap-4">
+                               
+                                    <div class="card-info">
+                                        <h4 class="card-title fw-semibold tcn-1 mb-1 cursor-scale growDown2 title-anim">
+                                            SteakCrazy
+                                        </h4>
+                                        <p class="card-text tcs-1 fw-medium" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Throwing</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="grid-lines overflow-hidden">
+            <div class="lines">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <div class="lines">
+                <div class="line-vertical"></div>
+                <div class="line-vertical"></div>
+                <div class="line-vertical"></div>
+                <div class="line-vertical"></div>
+                <div class="line-vertical"></div>
+                <div class="line-vertical"></div>
+                <div class="line-vertical"></div>
+                <div class="line-vertical"></div>
+                <div class="line-vertical"></div>
+                <div class="line-vertical"></div>
+            </div>
+        </div>
+    </section>
+    <!-- Hero Section end  -->
+
+    <!-- 3D swiper section start-->
+    <section class="swiper-3d-section position-relative z-1" id="swiper-3d">
+        <div class="container">
+            <!-- Slider main container -->
+            <div class="swiper swiper-3d-container">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                   <div class="swiper-slide">
+                        <div class="card-3d d-grid justify-content-center p-3">
+                            <div class="img-area w-100 mb-8 position-relative">
+                                <span style="color: black;"
+                                    class="card-date position-absolute top-0 end-0 py-2 px-3 mt-4 me-5 tcn-1 d-flex align-items-center gap-1 fs-sm">
+                                    <i class="ti ti-calendar-due"></i> 15.08.2024</span>
+                                <img class="w-100" src="assets/img/valorant image.jpg" alt="game">
+                                <span class="card-status position-absolute start-0 py-2 px-6 tcn-1 fs-sm">
+                                    <span class="dot-icon alt-icon ps-3">Upcoming</span>
+                                </span>
+                            </div>
+                            <h5 class="card-title text-center tcn-1 mb-4 title-anim">Valorant</h5>
+                            <h8 class="card-title text-center tcn-1 mb-4 title-anim "style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;"  >(Deathmatch - Single Player)</h8>
+                            <div class="d-center">
+                                <div class="card-info d-center gap-3 py-1 px-3">
+                                    <div class="d-flex align-items-center gap-2">
+                                    
+                                        <span class="tcn-1 fs-xs">₹30</span>
+                                    </div>
+                                
+                                 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="card-3d d-grid justify-content-center p-3">
+                            <div class="img-area w-100 mb-8 position-relative">
+                                <span style="color: black;"
+                                    class="card-date position-absolute top-0 end-0 py-2 px-3 mt-4 me-5 tcn-1 d-flex align-items-center gap-1 fs-sm">
+                                    <i class="ti ti-calendar-due"></i> 15.08.2024</span>
+                                <img class="w-100" src="assets/img/valorant image.jpg" alt="game">
+                                <span class="card-status position-absolute start-0 py-2 px-6 tcn-1 fs-sm">
+                                    <span class="dot-icon alt-icon ps-3">Upcoming</span>
+                                </span>
+                            </div>
+                            <h5 class="card-title text-center tcn-1 mb-4 title-anim" >Valorant</h5>
+                            <h8 class="card-title text-center tcn-1 mb-4 title-anim "style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;"  >(Team Deathmatch - Tournament)</h8>
+                            <div class="d-center">
+                                <div class="card-info d-center gap-3 py-1 px-3">
+                                    <div class="d-flex align-items-center gap-2">
+                                        
+                                        <span class="tcn-1 fs-xs">₹100</span>
+                                    </div>
+                                 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="card-3d d-grid justify-content-center p-3">
+                            <div class="img-area w-100 mb-8 position-relative">
+                                <span style="color: black;"
+                                    class="card-date position-absolute top-0 end-0 py-2 px-3 mt-4 me-5 tcn-1 d-flex align-items-center gap-1 fs-sm">
+                                    <i class="ti ti-calendar-due"></i> 15.08.2024</span>
+                                <img class="w-100" src="assets/img/valorant image.jpg" alt="game">
+                                <span class="card-status position-absolute start-0 py-2 px-6 tcn-1 fs-sm">
+                                    <span class="dot-icon alt-icon ps-3">Upcoming</span>
+                                </span>
+                            </div>
+                            <h5 class="card-title text-center tcn-1 mb-4 title-anim">Valorant</h5>
+                            <h8 class="card-title text-center tcn-1 mb-4 title-anim "style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">(Standard - Tournament)</h8>
+                            <div class="d-center">
+                                <div class="card-info d-center gap-3 py-1 px-3">
+                                    <div class="d-flex align-items-center gap-2">
+                                
+                                        <span class="tcn-1 fs-xs">₹200</span>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="card-3d d-grid justify-content-center p-3">
+                            <div class="img-area w-100 mb-8 position-relative">
+                                <span
+                                    class="card-date position-absolute top-0 end-0 py-2 px-3 mt-4 me-5 tcn-1 d-flex align-items-center gap-1 fs-sm">
+                                    <i class="ti ti-calendar-due"></i> 15.08.2024</span>
+                                <img class="w-100" src="assets/img/bgmi image.jpg" alt="game">
+                                <span class="card-status position-absolute start-0 py-2 px-6 tcn-1 fs-sm">
+                                    <span class="dot-icon alt-icon ps-3">Upcoming</span>
+                                </span>
+                            </div>
+                            <h5 class="card-title text-center tcn-1 mb-4 title-anim">Battle Grounds Mobile India</h5>
+                            <h8 class="card-title text-center tcn-1 mb-4 title-anim "style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">(Standard - Tournament-(Squads))</h8>
+                            <div class="d-center">
+                                <div class="card-info d-center gap-3 py-1 px-3">
+                                    <div class="d-flex align-items-center gap-2">
+                            
+                                        <span class="tcn-1 fs-xs">₹50</span>
+                                    </div>
+                              
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="card-3d d-grid justify-content-center p-3">
+                            <div class="img-area w-100 mb-8 position-relative">
+                                <span
+                                    class="card-date position-absolute top-0 end-0 py-2 px-3 mt-4 me-5 tcn-1 d-flex align-items-center gap-1 fs-sm">
+                                    <i class="ti ti-calendar-due"></i> 15.08.2024</span>
+                                <img class="w-100" src="assets/img/bgmi image.jpg" alt="game">
+                                <span class="card-status position-absolute start-0 py-2 px-6 tcn-1 fs-sm">
+                                    <span class="dot-icon alt-icon ps-3">Upcoming</span>
+                                </span>
+                            </div>
+                            <h5 class="card-title text-center tcn-1 mb-4 title-anim">Battle Grounds Mobile India</h5>
+                            <h8 class="card-title text-center tcn-1 mb-4 title-anim "style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">(Standard - Tournament-(Solo))</h8>
+                            <div class="d-center">
+                                <div class="card-info d-center gap-3 py-1 px-3">
+                                    <div class="d-flex align-items-center gap-2">
+                    
+                                        <span class="tcn-1 fs-xs">₹30</span>
+                                    </div>
+                                 
+                                 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="card-3d d-grid justify-content-center p-3">
+                            <div class="img-area w-100 mb-8 position-relative">
+                                <span
+                                    class="card-date position-absolute top-0 end-0 py-2 px-3 mt-4 me-5 tcn-1 d-flex align-items-center gap-1 fs-sm">
+                                    <i class="ti ti-calendar-due"></i> 15.08.2024</span>
+                                <img class="w-100" src="assets/img/bgmi image.jpg" alt="game">
+                                <span class="card-status position-absolute start-0 py-2 px-6 tcn-1 fs-sm">
+                                    <span class="dot-icon alt-icon ps-3">Upcoming</span>
+                                </span>
+                            </div>
+                            <h5 class="card-title text-center tcn-1 mb-4 title-anim">Battle Grounds Mobile India</h5>
+                            <h8 class="card-title text-center tcn-1 mb-4 title-anim "style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">(Standard - Tournament-(Duos))</h8>
+                            <div class="d-center">
+                                <div class="card-info d-center gap-3 py-1 px-3">
+                                    <div class="d-flex align-items-center gap-2">
+                    
+                                        <span class="tcn-1 fs-xs">₹50</span>
+                                    </div>
+                                 
+                                 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                 
+              
+            
+    
+                </div>
+            </div>
+            <div class="swiper-btn-area d-center gap-6">
+                <div class="swiper-btn swiper-3d-button-prev box-style">
+                    <i class="ti ti-chevron-left fs-xl"></i>
+                </div>
+                <div class="swiper-btn swiper-3d-button-next box-style">
+                    <i class="ti ti-chevron-right fs-xl"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 3D swiper section end-->
+
+    <!-- top player section start  -->
+    <section class="top-player-section pt-120 pb-120" id="top-player">
+        <!-- sword animation -->
+        <div class="sword-area">
+            <img class="w-100" src="assets/img/sword.png" alt="sword">
+        </div>
+        <div class="red-ball end-0"></div>
+        <div class="container">
+            <div class="row justify-content-between mb-15">
+                <div class="col-sm-6">
+                    <h2 class="display-four tcn-1 cursor-scale growUp title-anim">Top Players</h2>
+                </div>
+                <div class="col-sm-6 d-none d-sm-block">
+                    <div class="d-flex justify-content-end align-items-center gap-6">
+                        <div class="swiper-btn top-player-prev box-style">
+                            <i class="ti ti-chevron-left fs-xl"></i>
+                        </div>
+                        <div class="swiper-btn top-player-next box-style">
+                            <i class="ti ti-chevron-right fs-xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="swiper swiper-top-player">
+                        <div class="swiper-wrapper my-1">
+                            <div class="swiper-slide">
+                                <div class="player-card d-grid gap-6 p-6 card-tilt" data-tilt>
+                                    <div class="player-info-area d-between w-100">
+                                        <div class="player-info d-flex align-items-center gap-4">
+                                           
+                                            <div>
+                                                <h5 class="player-name tcn-1 mb-1 title-anim">Noxiboi</h5>
+                                                <span class="tcn-6 fs-sm">Valorant</span>
+                                            </div>
+                                        </div>
+                                        <form action="#">
+                                            <button class="follow-btn box-style">
+                                                <i class="ti ti-arrow-right fs-xl"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                    <div class="player-score-details d-flex align-items-center flex-wrap gap-3">
+                                        
+                                        <div class="rank">
+                                            <h6 class="rank-title tcn-6 mb-2">Rank</h6>
+                                            <span class="tcn-1 fs-sm">
+                                                <i class="ti"></i> Ascendant</span>
+                                        </div>
+                                        <div class="region">
+                                            <h6 class="region-title tcn-6 mb-2">KDA</h6>
+                                            <span class="tcn-1 fs-sm text-uppercase"> 28/12/6</span>
+                                        </div>
+                                        <div class="team">
+                                            <h6 class="team-title tcn-6 mb-2">Team</h6>
+                                            <span class="tcs-1 fs-sm text-uppercase"> Jaaman</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="player-card d-grid gap-6 p-6 card-tilt" data-tilt>
+                                    <div class="player-info-area d-between w-100">
+                                        <div class="player-info d-flex align-items-center gap-4">
+                                           
+                                            <div>
+                                                <h5 class="player-name tcn-1 mb-1 title-anim">Zanny</h5>
+                                                <span class="tcn-6 fs-sm">Valorant</span>
+                                            </div>
+                                        </div>
+                                        <form action="#">
+                                            <button class="follow-btn box-style">
+                                                <i class="ti ti-arrow-right fs-xl"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                    <div class="player-score-details d-flex align-items-center flex-wrap gap-3">
+                                        
+                                        <div class="rank">
+                                            <h6 class="rank-title tcn-6 mb-2">Rank</h6>
+                                            <span class="tcn-1 fs-sm">
+                                                <i class="ti"></i> Ascendant</span>
+                                        </div>
+                                        <div class="region">
+                                            <h6 class="region-title tcn-6 mb-2">KDA</h6>
+                                            <span class="tcn-1 fs-sm text-uppercase"> 28/12/6</span>
+                                        </div>
+                                        <div class="team">
+                                            <h6 class="team-title tcn-6 mb-2">Team</h6>
+                                            <span class="tcs-1 fs-sm text-uppercase"> Jaaman</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="player-card d-grid gap-6 p-6 card-tilt" data-tilt>
+                                    <div class="player-info-area d-between w-100">
+                                        <div class="player-info d-flex align-items-center gap-4">
+                                           
+                                            <div>
+                                                <h5 class="player-name tcn-1 mb-1 title-anim">SteakCrazy</h5>
+                                                <span class="tcn-6 fs-sm">Valorant</span>
+                                            </div>
+                                        </div>
+                                        <form action="#">
+                                            <button class="follow-btn box-style">
+                                                <i class="ti ti-arrow-right fs-xl"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                    <div class="player-score-details d-flex align-items-center flex-wrap gap-3">
+                                        
+                                        <div class="rank">
+                                            <h6 class="rank-title tcn-6 mb-2">Rank</h6>
+                                            <span class="tcn-1 fs-sm">
+                                                <i class="ti"></i> Ascendant</span>
+                                        </div>
+                                        <div class="region">
+                                            <h6 class="region-title tcn-6 mb-2">KDA</h6>
+                                            <span class="tcn-1 fs-sm text-uppercase"> 28/12/6</span>
+                                        </div>
+                                        <div class="team">
+                                            <h6 class="team-title tcn-6 mb-2">Team</h6>
+                                            <span class="tcs-1 fs-sm text-uppercase"> Jaaman</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="player-card d-grid gap-6 p-6 card-tilt" data-tilt>
+                                    <div class="player-info-area d-between w-100">
+                                        <div class="player-info d-flex align-items-center gap-4">
+                                           
+                                            <div>
+                                                <h5 class="player-name tcn-1 mb-1 title-anim">GroundZero</h5>
+                                                <span class="tcn-6 fs-sm">BGMI</span>
+                                            </div>
+                                        </div>
+                                        <form action="#">
+                                            <button class="follow-btn box-style">
+                                                <i class="ti ti-arrow-right fs-xl"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                    <div class="player-score-details d-flex align-items-center flex-wrap gap-3">
+                                        
+                                        <div class="rank">
+                                            <h6 class="rank-title tcn-6 mb-2">Rank</h6>
+                                            <span class="tcn-1 fs-sm">
+                                                <i class="ti"></i> Ace</span>
+                                        </div>
+                                        <div class="region">
+                                            <h6 class="region-title tcn-6 mb-2">KD</h6>
+                                            <span class="tcn-1 fs-sm text-uppercase"> 2.5</span>
+                                        </div>
+                                        <div class="team">
+                                            <h6 class="team-title tcn-6 mb-2">Team</h6>
+                                            <span class="tcs-1 fs-sm text-uppercase"> Jaaman</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="player-card d-grid gap-6 p-6 card-tilt" data-tilt>
+                                    <div class="player-info-area d-between w-100">
+                                        <div class="player-info d-flex align-items-center gap-4">
+                                           
+                                            <div>
+                                                <h5 class="player-name tcn-1 mb-1 title-anim">REEAM</h5>
+                                                <span class="tcn-6 fs-sm">Valorant</span>
+                                            </div>
+                                        </div>
+                                        <form action="#">
+                                            <button class="follow-btn box-style">
+                                                <i class="ti ti-arrow-right fs-xl"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                    <div class="player-score-details d-flex align-items-center flex-wrap gap-3">
+                                        
+                                        <div class="rank">
+                                            <h6 class="rank-title tcn-6 mb-2">Rank</h6>
+                                            <span class="tcn-1 fs-sm">
+                                                <i class="ti"></i> Ascendant</span>
+                                        </div>
+                                        <div class="region">
+                                            <h6 class="region-title tcn-6 mb-2">KDA</h6>
+                                            <span class="tcn-1 fs-sm text-uppercase"> 28/12/6</span>
+                                        </div>
+                                        <div class="team">
+                                            <h6 class="team-title tcn-6 mb-2">Team</h6>
+                                            <span class="tcs-1 fs-sm text-uppercase"> Jaaman</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                           
+                          
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- top player section end -->
+
+    <!-- tournament section start -->
+    <section class="tournament-section pb-120" id="tournament-hero">
+        <!-- Diamond animation -->
+        <div class="diamond-area">
+            <img class="w-100" src="assets/img/diamond.png" alt="diamond">
+        </div>
+        <!-- game console animation -->
+        <div class="game-console-area">
+            <img class="w-100" src="assets/img/game-console2.png" alt="game-console">
+        </div>
+        <div class="red-ball top-50"></div>
+        <div class="tournament-wrapper">
+            <div class="tournament-wrapper-border">
+                <div class="container pt-120 pb-120">
+                    <div class="row justify-content-between align-items-center gy-sm-0 gy-4 mb-15">
+                        <div class="col-md-6 col-sm-8">
+                            <h2 class="display-four tcn-1 cursor-scale growUp title-anim">Tournaments</h2>
+                        </div>
+                        
+                    </div>
+                    <div class="row justify-content-between align-items-center g-6">
+                        <div class="col-xl-4 col-md-6">
+                            <div class="tournament-card p-xl-4 p-3 bgn-4">
+                                <div class="tournament-img mb-8 position-relative">
+                                    <div class="img-area overflow-hidden">
+                                        <img class="w-100" src="assets/img/valorant tournament.jpg" alt="tournament">
+                                    </div>
+                                    <span class="card-status position-absolute start-0 py-2 px-6 tcn-1 fs-sm">
+                                        <span class="dot-icon alt-icon ps-3">Ongoing</span>
+                                    </span>
+                                </div>
+                                <div class="tournament-content px-xl-4 px-sm-2">
+                                    <div class="tournament-info mb-5">
+                                        <a href="#" class="d-block">
+                                            <h4 class="tournament-title tcn-1 mb-1 cursor-scale growDown title-anim">
+                                                Valorant
+                                            </h4>
+                                        </a>
+                                        <span class="tcn-6 fs-sm" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Deathmatch</span>
+                                    </div>
+                                    <div class="hr-line line3"></div>
+                                    <div class="card-info d-flex align-items-center gap-3 flex-wrap my-5">
+                                        <div class="price-money bgn-3 d-flex align-items-center gap-3 py-2 px-3 h-100">
+                                            <div class="d-flex align-items-center gap-2">
+                                                
+                                                <span class="tcn-1 fs-sm">₹30</span>
+                                            </div>
+                                          
+                                        
+                                        </div>
+                                        <div class="ticket-fee bgn-3 d-flex align-items-center gap-1 py-2 px-3 h-100">
+                                            <i class="ti ti-ticket fs-base tcp-2"></i>
+                                            <span class="tcn-1 fs-sm" >Per Person</span>
+                                        </div>
+                                        <div class="date-time bgn-3 d-flex align-items-center gap-1 py-2 px-3 h-100">
+                                            <i class="ti ti-calendar fs-base tcn-1"></i>
+                                            <span class="tcn-1 fs-sm">OCT 02, 5:10 PM</span>
+                                        </div>
+                                    </div>
+                                    <div class="hr-line line3"></div>
+                                    <div class="card-more-info d-between mt-6">
+                                        <div class="teams-info d-between gap-xl-5 gap-3">
+                                           
+                                            <div class="player d-flex align-items-center gap-1">
+                                                <i class="ti ti-user fs-base"></i>
+                                                <span class="tcn-6 fs-sm">0/25 Players</span>
+                                            </div>
+                                        </div>
+                                        <button class="btn-rounded-cus wallet-btn border-0 d-flex align-items-center gap-3 p-xl-2 p-0 pe-xl-6 rounded-5 position-relative">
+                                            <span class="text-nowrap">
+                                                
+                                            <i class="ti ti-arrow-right fs-2xl btn2"></i>
+                                        
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-md-6">
+                            <div class="tournament-card p-xl-4 p-3 bgn-4">
+                                <div class="tournament-img mb-8 position-relative">
+                                    <div class="img-area overflow-hidden">
+                                        <img class="w-100" src="assets/img/valorant tournament.jpg" alt="tournament">
+                                    </div>
+                                    <span class="card-status position-absolute start-0 py-2 px-6 tcn-1 fs-sm">
+                                        <span class="dot-icon alt-icon ps-3">Ongoing</span>
+                                    </span>
+                                </div>
+                                <div class="tournament-content px-xl-4 px-sm-2">
+                                    <div class="tournament-info mb-5">
+                                        <a href="#" class="d-block">
+                                            <h4 class="tournament-title tcn-1 mb-1 cursor-scale growDown title-anim">
+                                                Valorant
+                                            </h4>
+                                        </a>
+                                        <span class="tcn-6 fs-sm" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Standard</span>
+                                    </div>
+                                    <div class="hr-line line3"></div>
+                                    <div class="card-info d-flex align-items-center gap-3 flex-wrap my-5">
+                                        <div class="price-money bgn-3 d-flex align-items-center gap-3 py-2 px-3 h-100">
+                                            <div class="d-flex align-items-center gap-2">
+                                           
+                                                <span class="tcn-1 fs-sm">₹200</span>
+                                            </div>
+                                            
+                                     
+                                        </div>
+                                        <div class="ticket-fee bgn-3 d-flex align-items-center gap-1 py-2 px-3 h-100">
+                                            <i class="ti ti-ticket fs-base tcp-2"></i>
+                                            <span class="tcn-1 fs-sm">Per Team</span>
+                                        </div>
+                                        <div class="date-time bgn-3 d-flex align-items-center gap-1 py-2 px-3 h-100">
+                                            <i class="ti ti-calendar fs-base tcn-1"></i>
+                                            <span class="tcn-1 fs-sm">OCT 07, 5:10 PM</span>
+                                        </div>
+                                    </div>
+                                    <div class="hr-line line3"></div>
+                                    <div class="card-more-info d-between mt-6">
+                                        <div class="teams-info d-between gap-xl-5 gap-3">
+                                            <div class="teams d-flex align-items-center gap-1">
+                                                <i class="ti ti-users fs-base"></i>
+                                                <span class="tcn-6 fs-sm">0/12 Teams</span>
+                                            </div>
+                                          
+                                        </div>
+                                        <button class="btn-rounded-cus wallet-btn border-0 d-flex align-items-center gap-3 p-xl-2 p-0 pe-xl-6 rounded-5 position-relative">
+                                            <span class="text-nowrap">
+                                                
+                                            <i class="ti ti-arrow-right fs-2xl btn2"></i>
+                                        
+                                            </span>
+                                        </button>   
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-xl-4 col-md-6">
+                            <div class="tournament-card p-xl-4 p-3 bgn-4">
+                                <div class="tournament-img mb-8 position-relative">
+                                    <div class="img-area overflow-hidden">
+                                        <img class="w-100" src="assets/img/valorant tournament.jpg" alt="tournament">
+                                    </div>
+                                    <span class="card-status position-absolute start-0 py-2 px-6 tcn-1 fs-sm">
+                                        <span class="dot-icon alt-icon ps-3">Ongoing</span>
+                                    </span>
+                                </div>
+                                <div class="tournament-content px-xl-4 px-sm-2">
+                                    <div class="tournament-info mb-5">
+                                        <a href="#" class="d-block">
+                                            <h4 class="tournament-title tcn-1 mb-1 cursor-scale growDown title-anim">
+                                                Valorant
+                                            </h4>
+                                        </a>
+                                        <span class="tcn-6 fs-sm" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Team Deathmatch</span>
+                                    </div>
+                                    <div class="hr-line line3"></div>
+                                    <div class="card-info d-flex align-items-center gap-3 flex-wrap my-5">
+                                        <div class="price-money bgn-3 d-flex align-items-center gap-3 py-2 px-3 h-100">
+                                            <div class="d-flex align-items-center gap-2">
+                                           
+                                                <span class="tcn-1 fs-sm">₹100</span>
+                                            </div>
+                                            
+                                     
+                                        </div>
+                                        <div class="ticket-fee bgn-3 d-flex align-items-center gap-1 py-2 px-3 h-100">
+                                            <i class="ti ti-ticket fs-base tcp-2"></i>
+                                            <span class="tcn-1 fs-sm">Per Team</span>
+                                        </div>
+                                        <div class="date-time bgn-3 d-flex align-items-center gap-1 py-2 px-3 h-100">
+                                            <i class="ti ti-calendar fs-base tcn-1"></i>
+                                            <span class="tcn-1 fs-sm">OCT 07, 5:10 PM</span>
+                                        </div>
+                                    </div>
+                                    <div class="hr-line line3"></div>
+                                    <div class="card-more-info d-between mt-6">
+                                        <div class="teams-info d-between gap-xl-5 gap-3">
+                                            <div class="teams d-flex align-items-center gap-1">
+                                                <i class="ti ti-users fs-base"></i>
+                                                <span class="tcn-6 fs-sm">0/12 Teams</span>
+                                            </div>
+                                          
+                                        </div>
+                                        <button class="btn-rounded-cus wallet-btn border-0 d-flex align-items-center gap-3 p-xl-2 p-0 pe-xl-6 rounded-5 position-relative">
+                                            <span class="text-nowrap">
+                                                
+                                            <i class="ti ti-arrow-right fs-2xl btn2"></i>
+                                        
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="col-xl-4 col-md-6">
+                            <div class="tournament-card p-xl-4 p-3 bgn-4">
+                                <div class="tournament-img mb-8 position-relative">
+                                    <div class="img-area overflow-hidden">
+                                        <img class="w-100" src="assets/img/bgmi tournament.jpg" alt="tournament">
+                                    </div>  
+                                    <span class="card-status position-absolute start-0 py-2 px-6 tcn-1 fs-sm">
+                                        <span class="dot-icon alt-icon ps-3">Ongoing</span>
+                                    </span>
+                                </div>
+                                <div class="tournament-content px-xl-4 px-sm-2">
+                                    <div class="tournament-info mb-5">
+                                        <a href="#" class="d-block">
+                                            <h4 class="tournament-title tcn-1 mb-1 cursor-scale growDown title-anim">
+                                               Battle Grounds Mobile India</h4>
+                                        </a>
+                                        <span class="tcn-6 fs-sm" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Solo</span>
+                                    </div>
+                                    <div class="hr-line line3"></div>
+                                    <div class="card-info d-flex align-items-center gap-3 flex-wrap my-5">
+                                        <div class="price-money bgn-3 d-flex align-items-center gap-3 py-2 px-3 h-100">
+                                            <div class="d-flex align-items-center gap-2">
+                                               
+                                                <span class="tcn-1 fs-sm">₹30</span>
+                                            </div>
+                                           
+                                
+                                        </div>
+                                        <div class="ticket-fee bgn-3 d-flex align-items-center gap-1 py-2 px-3 h-100">
+                                            <i class="ti ti-ticket fs-base tcp-2"></i>
+                                            <span class="tcn-1 fs-sm">Per Person</span>
+                                        </div>
+                                        <div class="date-time bgn-3 d-flex align-items-center gap-1 py-2 px-3 h-100">
+                                            <i class="ti ti-calendar fs-base tcn-1"></i>
+                                            <span class="tcn-1 fs-sm">OCT 07, 5:10 PM</span>
+                                        </div>
+                                    </div>
+                                    <div class="hr-line line3"></div>
+                                    <div class="card-more-info d-between mt-6">
+                                        <div class="teams-info d-between gap-xl-5 gap-3">
+                                            <div class="teams d-flex align-items-center gap-1">
+                                                <i class="ti ti-users fs-base"></i>
+                                                <span class="tcn-6 fs-sm">0/20 Teams</span>
+                                            </div>
+                                            <div class="player d-flex align-items-center gap-1">
+                                                <i class="ti ti-user fs-base"></i>
+                                                <span class="tcn-6 fs-sm">0/80 Players</span>
+                                            </div>
+                                        </div>
+                                        <button class="btn-rounded-cus wallet-btn border-0 d-flex align-items-center gap-3 p-xl-2 p-0 pe-xl-6 rounded-5 position-relative">
+                                            <span class="text-nowrap">
+                                                
+                                            <i class="ti ti-arrow-right fs-2xl btn2"></i>
+                                        
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-md-6">
+                            <div class="tournament-card p-xl-4 p-3 bgn-4">
+                                <div class="tournament-img mb-8 position-relative">
+                                    <div class="img-area overflow-hidden">
+                                        <img class="w-100" src="assets/img/bgmi tournament.jpg" alt="tournament">
+                                    </div>
+                                    <span class="card-status position-absolute start-0 py-2 px-6 tcn-1 fs-sm">
+                                        <span class="dot-icon alt-icon ps-3">Ongoing</span>
+                                    </span>
+                                </div>
+                                <div class="tournament-content px-xl-4 px-sm-2">
+                                    <div class="tournament-info mb-5">
+                                        <a href="#" class="d-block">
+                                            <h4 class="tournament-title tcn-1 mb-1 cursor-scale growDown title-anim">
+                                               Battle Grounds Mobile India</h4>
+                                        </a>
+                                        <span class="tcn-6 fs-sm" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Duos</span>
+                                    </div>
+                                    <div class="hr-line line3"></div>
+                                    <div class="card-info d-flex align-items-center gap-3 flex-wrap my-5">
+                                        <div class="price-money bgn-3 d-flex align-items-center gap-3 py-2 px-3 h-100">
+                                            <div class="d-flex align-items-center gap-2">
+                                               
+                                                <span class="tcn-1 fs-sm">₹50</span>
+                                            </div>
+                                           
+                                
+                                        </div>
+                                        <div class="ticket-fee bgn-3 d-flex align-items-center gap-1 py-2 px-3 h-100">
+                                            <i class="ti ti-ticket fs-base tcp-2"></i>
+                                            <span class="tcn-1 fs-sm">Per Person</span>
+                                        </div>
+                                        <div class="date-time bgn-3 d-flex align-items-center gap-1 py-2 px-3 h-100">
+                                            <i class="ti ti-calendar fs-base tcn-1"></i>
+                                            <span class="tcn-1 fs-sm">OCT 07, 5:10 PM</span>
+                                        </div>
+                                    </div>
+                                    <div class="hr-line line3"></div>
+                                    <div class="card-more-info d-between mt-6">
+                                        <div class="teams-info d-between gap-xl-5 gap-3">
+                                            <div class="teams d-flex align-items-center gap-1">
+                                                <i class="ti ti-users fs-base"></i>
+                                                <span class="tcn-6 fs-sm">0/20 Teams</span>
+                                            </div>
+                                            <div class="player d-flex align-items-center gap-1">
+                                                <i class="ti ti-user fs-base"></i>
+                                                <span class="tcn-6 fs-sm">0/80 Players</span>
+                                            </div>
+                                        </div>
+                                        <button class="btn-rounded-cus wallet-btn border-0 d-flex align-items-center gap-3 p-xl-2 p-0 pe-xl-6 rounded-5 position-relative">
+                                            <span class="text-nowrap">
+                                                
+                                            <i class="ti ti-arrow-right fs-2xl btn2"></i>
+                                        
+                                            </span>
+                                        </button>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-md-6">
+                            <div class="tournament-card p-xl-4 p-3 bgn-4">
+                                <div class="tournament-img mb-8 position-relative">
+                                    <div class="img-area overflow-hidden">
+                                        <img class="w-100" src="assets/img/bgmi tournament.jpg" alt="tournament">
+                                    </div>
+                                    <span class="card-status position-absolute start-0 py-2 px-6 tcn-1 fs-sm">
+                                        <span class="dot-icon alt-icon ps-3">Ongoing</span>
+                                    </span>
+                                </div>
+                                <div class="tournament-content px-xl-4 px-sm-2">
+                                    <div class="tournament-info mb-5">
+                                        <a href="tournaments-details.html" class="d-block">
+                                            <h4 class="tournament-title tcn-1 mb-1 cursor-scale growDown title-anim">
+                                               Battle Grounds Mobile India</h4>
+                                        </a>
+                                        <span class="tcn-6 fs-sm" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Squad</span>
+                                    </div>
+                                    <div class="hr-line line3"></div>
+                                    <div class="card-info d-flex align-items-center gap-3 flex-wrap my-5">
+                                        <div class="price-money bgn-3 d-flex align-items-center gap-3 py-2 px-3 h-100">
+                                            <div class="d-flex align-items-center gap-2">
+                                               
+                                                <span class="tcn-1 fs-sm">₹100</span>
+                                            </div>
+                                           
+                                
+                                        </div>
+                                        <div class="ticket-fee bgn-3 d-flex align-items-center gap-1 py-2 px-3 h-100">
+                                            <i class="ti ti-ticket fs-base tcp-2"></i>
+                                            <span class="tcn-1 fs-sm">Per Team</span>
+                                        </div>
+                                        <div class="date-time bgn-3 d-flex align-items-center gap-1 py-2 px-3 h-100">
+                                            <i class="ti ti-calendar fs-base tcn-1"></i>
+                                            <span class="tcn-1 fs-sm">OCT 07, 5:10 PM</span>
+                                        </div>
+                                    </div>
+                                    <div class="hr-line line3"></div>
+                                    <div class="card-more-info d-between mt-6">
+                                        <div class="teams-info d-between gap-xl-5 gap-3">
+                                            <div class="teams d-flex align-items-center gap-1">
+                                                <i class="ti ti-users fs-base"></i>
+                                                <span class="tcn-6 fs-sm">0/20 Teams</span>
+                                            </div>
+                                        </div>
+                                        <button class="btn-rounded-cus wallet-btn border-0 d-flex align-items-center gap-3 p-xl-2 p-0 pe-xl-6 rounded-5 position-relative">
+                                            <span class="text-nowrap">
+                                                
+                                            <i class="ti ti-arrow-right fs-2xl btn2"></i>
+                                        
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- tournament section end -->
+
+    
+
+<!-- next level gaming section start -->
+         <section class="next-level-gaming-section pt-120 pb-120" id="next-level-gaming">
+        <div class="red-ball bottom-50"></div>
+        <div class="container">
+            <div class="row justify-content-between mb-15">
+                <div class="col-lg-6 col-sm-10">
+                    <h2 class="display-four tcn-1 cursor-scale growUp title-anim"><span class="d-block">Gaming Support
+                        </span> Platform    </h2>
+                </div>
+            </div>
+            <div class="row g-6">
+                <div class="col-lg-4 col-md-6">
+                    <div class="next-level-game-card d-grid gap-5 py-lg-10 py-sm-6 py-4 px-xl-9 px-sm-5 px-3">
+                        <div class="card-icon">
+                            <i class="ti ti-12-hours fs-2xl tcn-1"></i>
+                        </div>
+                        <h4 class="card-title tcn-1 cursor-scale growDown2 title-anim">Best Support</h4>
+                        <p class="card-text tcs-6" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Get a reply from our friendly staff.
+                            24/7.</p>
+                        <div class="pt-3">
+                            <a href="#" class="card-link d-inline-flex align-items-center w-auto">Play Now<i
+                                    class="ti ti-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="next-level-game-card d-grid gap-5 py-lg-10 py-sm-6 py-4 px-xl-9 px-sm-5 px-3">
+                        <div class="card-icon">
+                            <i class="ti ti-tools fs-2xl tcn-1"></i>
+                        </div>
+                        <h4 class="card-title tcn-1 cursor-scale growDown2 title-anim">Play To Earn</h4>
+                        <p class="card-text tcs-6" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Participate solo or with your team to win</p>
+                        <div class="pt-3">
+                            <a href="#" class="card-link d-inline-flex align-items-center w-auto">Play Now<i
+                                    class="ti ti-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="next-level-game-card d-grid gap-5 py-lg-10 py-sm-6 py-4 px-xl-9 px-sm-5 px-3">
+                        <div class="card-icon">
+                            <i class="ti ti-coins fs-2xl tcn-1"></i>
+                        </div>
+                        <h4 class="card-title tcn-1 cursor-scale growDown2 title-anim">Trustable Payouts</h4>
+                        <p class="card-text tcs-6" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Money transferred to the verified Individual</p>
+                        <div class="pt-3">
+                            <a href="#" class="card-link d-inline-flex align-items-center w-auto">Play Now<i
+                                    class="ti ti-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                
+            </div>
+        </div>
+    </section>
+    <!-- next level gaming section end -->
+
+    <!-- call to action section start -->
+       <!--  <div class="call-to-action pt-120 pb-120 bgn-4 overflow-x-hidden" id="cta">
+        <div class="container">
+            <div class="row justify-content-between g-6">
+                <div class="col-lg-6">
+                    <span class="display-three tcn-1 cursor-scale growUp mb-8 d-block title-anim">Stay up to
+                        date</span>
+                    <span class="fs-lg tcn-6">
+                        Have questions or feedback? We'd love to hear from you. Reach out to our team or use our
+                        contact
+                        form.
+                    </span>
+                </div>
+                <div class="col-xl-5 col-lg-6">
+                    <form action="#">
+                        <div class="single-input mb-6">
+                            <input type="email" placeholder="Enter your email">
+                        </div>
+                        <div
+                            class="d-flex align-items-md-center align-items-start justify-content-between gap-lg-8 gap-6 flex-md-row flex-column">
+                            <div class="d-flex align-items-center gap-lg-4 gap-2">
+                                <label class="custom-checkbox">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <span class="fs-base tcn-6">I agree with <a href="#" class="tcp-1">Privacy
+                                        Policy</a>
+                                    and <a href="terms-condition.html" class="tcp-1">Terms & Conditions</a>
+                                </span>
+                            </div>
+                            <button type="submit"
+                                class="bttn py-sm-4 py-3 px-lg-10 px-sm-8 px-6 bgp-1 tcn-1 rounded-4">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- call to action section end -->
+
+    <!-- footer section start  -->
+         <footer class="footer bgn-4 bt">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-3 col-sm-6 br py-lg-20 pt-sm-15 pt-10 footer-card-area">
+                    <div class="py-lg-10">
+                        <div class="footer-logo mb-8">
+                            <a href="#" class="d-grid gap-6">
+                                <div class="flogo-1">
+
+                                </div>
+                                <div class="flogo-2">
+                                    <img class="w-100" src="assets/img/Limitless_transparent.png" alt="logo">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="social-links">
+                            <ul class="d-flex align-items-center gap-3 flex-wrap">
+                                <li>
+                                    <a href="#"><i class="ti ti-brand-discord fs-2xl"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="ti ti-brand-twitter fs-2xl"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="ti ti-brand-youtube fs-2xl"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="ti ti-brand-linkedin fs-2xl"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="ti ti-brand-instagram fs-2xl"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 br br-res py-lg-20 pt-sm-15 pt-10 footer-card-area">
+                    <div class="py-lg-10">
+                        <h4 class="footer-title mb-8 title-anim">Quick Links</h4>
+                        <ul class="footer-list d-grid gap-4">
+                            <li><a href="https://vathender.pages.dev/" class="footer-link d-flex align-items-center tcn-6">
+                                    <i class="ti ti-chevron-right"></i> Contact Developer</a></li>
+                            <li><a href="teams.html" class="footer-link d-flex align-items-center tcn-6"> <i
+                                        class="ti ti-chevron-right"></i> Teams</a></li>
+                            <li><a href="faq.html" class="footer-link d-flex align-items-center tcn-6"> <i
+                                        class="ti ti-chevron-right"></i> FAQ</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 br py-lg-20 pt-sm-15 pt-10 footer-card-area">
+                    <div class="py-lg-10">
+                        <h4 class="footer-title mb-8 title-anim">Explore</h4>
+                        <ul class="footer-list d-grid gap-4">
+                            <li><a href="#" class="footer-link d-flex align-items-center tcn-6"> <i
+                                        class="ti ti-chevron-right"></i> Team Contact</a></li>
+                            <li><a href="chat.html" class="footer-link d-flex align-items-center tcn-6"> <i
+                                        class="ti ti-chevron-right"></i> Report an issue</a></li>
+                            <li><a href="profile.html" class="footer-link d-flex align-items-center tcn-6"> <i
+                                        class="ti ti-chevron-right"></i> Payments </a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 py-lg-20 pt-sm-15 pt-10 footer-card-area">
+                    <div class="py-lg-10">
+                        <h4 class="footer-title mb-8 title-anim">Follow Us</h4>
+                        <ul class="footer-list d-grid gap-4">
+                            <li><a href="#" class="footer-link d-flex align-items-center tcn-6"> <i
+                                        class="ti ti-chevron-right"></i> Discord</a></li>
+                            <li><a href="#" class="footer-link d-flex align-items-center tcn-6"> <i
+                                        class="ti ti-chevron-right"></i> Instagram</a></li>
+                            <li><a href="#" class="footer-link d-flex align-items-center tcn-6"> <i
+                                        class="ti ti-chevron-right"></i> Twitter</a></li>
+                            <li><a href="#" class="footer-link d-flex align-items-center tcn-6"> <i
+                                        class="ti ti-chevron-right"></i> Linkedln</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row pb-4 pt-lg-4 pt-8 justify-content-between g-2">
+                <div class="col-xxl-4 col-lg-6 order-last order-lg-first">
+                    <span style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Copyright © <span class="currentYear"style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;"></span> Limitless </span>
+                </div>
+                <div class="col-xxl-3 col-lg-5">
+                    <ul class="d-flex align-items-center gap-lg-10 gap-sm-6 gap-4">
+                        <li><a href="terms-condition.html"style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Terms & Conditions</a></li>
+                       
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- footer banner img  -->
+        
+    <!-- footer section end  -->
+
+    <!-- ==== js dependencies start ==== -->
+    <script>
+     document.addEventListener('DOMContentLoaded', function() {
+    const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
+            if (!userInfo) {
+                // If no user info is found, redirect to sign-in page
+                window.location.href = "signin.html";
+            }
+    if (userInfo) {
+        let displayName = userInfo.displayName || "";
+
+        if (!displayName) {
+            // If the display name is not provided, extract it from the email
+            const email = userInfo.email || "";
+            if (email.includes("@")) {
+                displayName = email.split("@")[0];
+            } else {
+                displayName = "User"; // Default name if email is not valid
+            }
+        }
+
+        document.getElementById('displayName').textContent = displayName;
+        document.getElementById('userNameDisplay').textContent = displayName; // Set the name in the dropdown
+    } else {
+        // If no user info is found, redirect to sign-in page
+        window.location.href = "signin.html";
+    }
+    window.addEventListener('beforeunload', function() {
+        sessionStorage.clear();
+    });
+});
+    </script>
+
+    <!-- jquery  -->
+    <script src="assets/js/jquery.min.js"></script>
+    <!-- gsap  -->
+    <script src="assets/js/gsap.min.js"></script>
+    <!-- gsap scroll trigger -->
+    <script src="assets/js/ScrollTrigger.min.js"></script>
+    <!-- lenis  -->
+    <script src="assets/js/lenis.min.js"></script>
+    <!-- gsap split text -->
+    <script src="assets/js/SplitText.min.js"></script>
+    <!-- tilt js -->
+    <script src="assets/js/vanilla-tilt.js"></script>
+    <!-- scroll magic -->
+    <script src="assets/js/ScrollMagic.min.js"></script>
+    <!-- animation.gsap -->
+    <script src="assets/js/animation.gsap.min.js"></script>
+    <!-- gsap customization  -->
+    <script src="assets/js/gsap-customization.js"></script>
+    <!-- apex chart  -->
+    <script src="assets/js/apexcharts.js"></script>
+    <!-- swiper js -->
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <!-- magnific popup  -->
+    <script src="assets/js/magnific-popup.js_1.1.0_jquery.magnific-popup.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <!-- main js  -->
+    <script src="assets/js/main.js"></script>
+</body>
+
+
+<!-- Mirrored from gameplex-final.vercel.app/gameplex-v1-smooth-scroll/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 24 Jun 2024 08:24:21 GMT -->
+</html>
