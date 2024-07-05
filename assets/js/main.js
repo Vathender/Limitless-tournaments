@@ -304,46 +304,7 @@ $(document).ready(() => {
   });
 
   // 18 -> count down timer
-  (function () {
-    const second = 1000,
-      minute = second * 60,
-      hour = minute * 60,
-      day = hour * 24;
-    let today = new Date(),
-      dd = String(today.getDate()).padStart(2, "0"),
-      mm = String(today.getMonth() + 1).padStart(2, "0"),
-      yyyy = today.getFullYear(),
-      nextYear = yyyy + 1,
-      setDate = "12/31/", // month/date/year
-      // endingDate = setDate + yyyy; // end in current year
-      endingDate = setDate + nextYear; // end in next year
-    //endingDate = "12/01/" + yyyy; // month/date/year
 
-    today = mm + "/" + dd + "/" + yyyy;
-    if (today > endingDate) {
-      endingDate = new Date(endingDate).getTime();
-    }
-    //end
-    const countDown = new Date(endingDate).getTime(),
-      x = setInterval(function () {
-
-        const now = new Date().getTime(),
-          distance = countDown - now;
-        const days = document.getElementById("days");
-        const hours = document.getElementById("hours");
-        const minutes = document.getElementById("minutes");
-        const seconds = document.getElementById("seconds");
-        if (days && hours && minutes && seconds) {
-          days.innerText = Math.floor(distance / (day)),
-            hours.innerText = Math.floor((distance % (day)) / (hour)),
-            minutes.innerText = Math.floor((distance % (hour)) / (minute)),
-            seconds.innerText = Math.floor((distance % (minute)) / second);
-        }
-        if (distance < 0) {
-          clearInterval(x);
-        }
-      }, 0)
-  }());
 
   // 19 -> earning chart (apex line chart)
   var options = {
