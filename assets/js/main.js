@@ -275,20 +275,31 @@ $(document).ready(() => {
   });
 
   // 16 -> custom tab list
-  $(".tablinks .nav-links").each(function () {
-    var targetTab = $(this).closest(".singletab");
-    targetTab.find(".tablinks .nav-links").each(function () {
-      var navBtn = targetTab.find(".tablinks .nav-links");
-      navBtn.click(function () {
-        navBtn.removeClass('active');
-        $(this).addClass('active');
-        var indexNum = $(this).closest("li").index();
-        var tabcontent = targetTab.find(".tabcontents .tabitem");
-        $(tabcontent).removeClass('active');
-        $(tabcontent).eq(indexNum).addClass('active');
-      });
+  $(document).ready(function () {
+    $(".tablinks .nav-links button").each(function () {
+        var targetTab = $(this).closest(".singletab");
+        $(this).click(function () {
+            // Remove active class from all nav-links buttons
+            targetTab.find(".tablinks .nav-links button").removeClass('active');
+            // Add active class to the clicked button
+            $(this).addClass('active');
+            
+            // Get the index of the clicked button
+            var indexNum = $(this).closest("li").index();
+            
+            // Hide all tab items
+            var tabcontent = targetTab.find(".tabitem");
+            tabcontent.removeClass('active').hide();
+            
+            // Show the tab item corresponding to the clicked button
+            tabcontent.eq(indexNum).addClass('active').show();
+        });
     });
-  });
+
+    // Initialize the first tab as active
+    $(".tablinks .nav-links button").first().click();
+});
+
 
   // 17 -> custom accordion list
   $(".accordion-single .acc-header-area").click(function () {
