@@ -17,12 +17,40 @@
             overflow: auto !important;
         }
     </style>
-        <script>
-            function logout() {
-                sessionStorage.removeItem('userInfo');
-                window.location.href = 'signin.html';
+       <script>
+        // Ensure the data persists across refreshes
+        document.addEventListener('DOMContentLoaded', function() {
+            const userInfo = JSON.parse(localStorage.getItem('userInfo') || sessionStorage.getItem('userInfo'));
+
+            if (userInfo) {
+                let displayName = userInfo.displayName || "";
+
+                if (!displayName && userInfo.email) {
+                    const email = userInfo.email;
+                    if (email.includes("@")) {
+                        displayName = email.split("@")[0];
+                    } else {
+                        displayName = email;
+                    }
+                }
+
+                document.getElementById('displayName').textContent = displayName;
+                document.getElementById('userNameDisplay').textContent = displayName;
             }
-        </script>
+        });
+
+        // Update the storage after login
+        function storeUserInfo(userInfo) {
+            localStorage.setItem('userInfo', JSON.stringify(userInfo));
+            // Or if you prefer session-only storage, use this instead:
+            // sessionStorage.setItem('userInfo', JSON.stringify(userInfo));
+        }
+
+        function logout() {
+            localStorage.removeItem('userInfo');
+            window.location.href = 'signin.html';
+        }
+    </script>
 </head>
 
 <body>
@@ -45,7 +73,7 @@
                             <span></span>
                             <span></span>
                         </button>
-                        <a class="navbar-brand d-flex align-items-center gap-4" href="index.html">
+                        <a class="navbar-brand d-flex align-items-center gap-4" href="index2.html">
                             <img class="w-150 logo1" src="assets/img/Limitless.png" alt="favicon">
                             <img class="w-100 logo2" src="assets/img/Limitless_transparent.png" alt="logo">
                         </a>
@@ -55,51 +83,18 @@
                             <li class="menu-link">
                                 <a href="index.html" , style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Home</a>
                             </li>
-                            <li class="menu-item">
-                                <button style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Tournament</button>
-                                <ul class="sub-menu">
-                                    <li class="menu-link">
-                                        <a href="tournaments.html" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Tournaments</a>
-                                    </li>
-                                    <li class="menu-link">
-                                        <a href="tournaments-details.html" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Tournaments Details</a>
-                                    </li>
-                                </ul>
+                            <li class="menu-list">
+                                <a style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Tournament</a>
+                               
                             </li>
                             <li class="menu-link">
                                 <a href="game.html" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Game</a>
                             </li>
-                            <li class="menu-item">
-                                <button>Teams</button>
-                                <ul class="sub-menu">
-                                    <li class="menu-link">
-                                        <a href="teams.html" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Teams</a>
-                                    </li>
-                                    <li class="menu-link">
-                                        <a href="teams-details.html" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Teams Details</a>
-                                    </li>
-                                </ul>
+                            <li class="menu-list">
+                                <a>Teams</a>
+                             
                             </li>
-                            <li class="menu-item">
-                                <button style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;" >pages</button>
-                                <ul class="sub-menu">
-                                    <li class="menu-link">
-                                        <a href="signup.html" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Sign Up</a>
-                                    </li>
-                                    <li class="menu-link">
-                                        <a href="signin.html" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Sign In</a>
-                                    </li>
-                                    <li class="menu-link">
-                                        <a href="error.html" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Error</a>
-                                    </li>
-                                    <li class="menu-link">
-                                        <a href="faq.html" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Faq</a>
-                                    </li>
-                                    <li class="menu-link">
-                                        <a href="terms-condition.html" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Terms Conditions</a>
-                                    </li>
-                                </ul>
-                            </li>
+
                         </ul>
                     </div>
                 </nav>
@@ -1052,62 +1047,62 @@
     
 
 <!-- next level gaming section start -->
-         <section class="next-level-gaming-section pt-120 pb-120" id="next-level-gaming">
-        <div class="red-ball bottom-50"></div>
-        <div class="container">
-            <div class="row justify-content-between mb-15">
-                <div class="col-lg-6 col-sm-10">
-                    <h2 class="display-four tcn-1 cursor-scale growUp title-anim"><span class="d-block">Gaming Support
-                        </span> Platform    </h2>
-                </div>
-            </div>
-            <div class="row g-6">
-                <div class="col-lg-4 col-md-6">
-                    <div class="next-level-game-card d-grid gap-5 py-lg-10 py-sm-6 py-4 px-xl-9 px-sm-5 px-3">
-                        <div class="card-icon">
-                            <i class="ti ti-12-hours fs-2xl tcn-1"></i>
-                        </div>
-                        <h4 class="card-title tcn-1 cursor-scale growDown2 title-anim">Best Support</h4>
-                        <p class="card-text tcs-6" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Get a reply from our friendly staff.
-                            24/7.</p>
-                        <div class="pt-3">
-                            <a href="#" class="card-link d-inline-flex align-items-center w-auto">Play Now<i
-                                    class="ti ti-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="next-level-game-card d-grid gap-5 py-lg-10 py-sm-6 py-4 px-xl-9 px-sm-5 px-3">
-                        <div class="card-icon">
-                            <i class="ti ti-tools fs-2xl tcn-1"></i>
-                        </div>
-                        <h4 class="card-title tcn-1 cursor-scale growDown2 title-anim">Play To Earn</h4>
-                        <p class="card-text tcs-6" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Participate solo or with your team to win</p>
-                        <div class="pt-3">
-                            <a href="#" class="card-link d-inline-flex align-items-center w-auto">Play Now<i
-                                    class="ti ti-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="next-level-game-card d-grid gap-5 py-lg-10 py-sm-6 py-4 px-xl-9 px-sm-5 px-3">
-                        <div class="card-icon">
-                            <i class="ti ti-coins fs-2xl tcn-1"></i>
-                        </div>
-                        <h4 class="card-title tcn-1 cursor-scale growDown2 title-anim">Trustable Payouts</h4>
-                        <p class="card-text tcs-6" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Money transferred to the verified Individual</p>
-                        <div class="pt-3">
-                            <a href="#" class="card-link d-inline-flex align-items-center w-auto">Play Now<i
-                                    class="ti ti-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                
-                
+<section class="next-level-gaming-section pt-120 pb-120" id="next-level-gaming">
+    <div class="red-ball bottom-50"></div>
+    <div class="container">
+        <div class="row justify-content-between mb-15">
+            <div class="col-lg-6 col-sm-10">
+                <h2 class="display-four tcn-1 cursor-scale growUp title-anim"><span class="d-block">Limitless Support
+                    </span> Platform    </h2>
             </div>
         </div>
-    </section>
+        <div class="row g-6">
+            <div class="col-lg-4 col-md-6">
+                <div class="next-level-game-card d-grid gap-5 py-lg-10 py-sm-6 py-4 px-xl-9 px-sm-5 px-3">
+                    <div class="card-icon">
+                        <i class="ti ti-12-hours fs-2xl tcn-1"></i>
+                    </div>
+                    <h4 class="card-title tcn-1 cursor-scale growDown2 title-anim">Best Support</h4>
+                    <p class="card-text tcs-6" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Get a reply from our friendly staff
+                        via Discord.</p>
+                    <div class="pt-3">
+                        <a href="#" class="card-link d-inline-flex align-items-center w-auto" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Raise a ticket<i
+                                class="ti ti-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="next-level-game-card d-grid gap-5 py-lg-10 py-sm-6 py-4 px-xl-9 px-sm-5 px-3">
+                    <div class="card-icon">
+                        <i class="ti ti-tools fs-2xl tcn-1"></i>
+                    </div>
+                    <h4 class="card-title tcn-1 cursor-scale growDown2 title-anim">Play To Earn</h4>
+                    <p class="card-text tcs-6" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Participate solo or with your team to win and earn stats</p>
+                    <div class="pt-3">
+                        <a href="#" class="card-link d-inline-flex align-items-center w-auto" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Play Now<i
+                                class="ti ti-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="next-level-game-card d-grid gap-5 py-lg-10 py-sm-6 py-4 px-xl-9 px-sm-5 px-3">
+                    <div class="card-icon">
+                        <i class="ti ti-coins fs-2xl tcn-1"></i>
+                    </div>
+                    <h4 class="card-title tcn-1 cursor-scale growDown2 title-anim">Trustable Payouts</h4>
+                    <p class="card-text tcs-6" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Money transferred to the verified Individual by the staff</p>
+                    <div class="pt-3">
+                        <a href="#" class="card-link d-inline-flex align-items-center w-auto" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Payout issue<i
+                                class="ti ti-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            
+            
+        </div>
+    </div>
+</section>
     <!-- next level gaming section end -->
 
     <!-- call to action section start -->
@@ -1151,7 +1146,7 @@
     <!-- call to action section end -->
 
     <!-- footer section start  -->
-         <footer class="footer bgn-4 bt">
+    <footer class="footer bgn-4 bt">
         <div class="container">
             <div class="row justify-content-between">
                 <div class="col-lg-3 col-sm-6 br py-lg-20 pt-sm-15 pt-10 footer-card-area">
@@ -1177,12 +1172,6 @@
                                 <li>
                                     <a href="#"><i class="ti ti-brand-youtube fs-2xl"></i></a>
                                 </li>
-                                <li>
-                                    <a href="#"><i class="ti ti-brand-linkedin fs-2xl"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="ti ti-brand-instagram fs-2xl"></i></a>
-                                </li>
                             </ul>
                         </div>
                     </div>
@@ -1191,24 +1180,24 @@
                     <div class="py-lg-10">
                         <h4 class="footer-title mb-8 title-anim">Quick Links</h4>
                         <ul class="footer-list d-grid gap-4">
-                            <li><a href="https://vathender.pages.dev/" class="footer-link d-flex align-items-center tcn-6">
-                                    <i class="ti ti-chevron-right"></i> Contact Developer</a></li>
-                            <li><a href="teams.html" class="footer-link d-flex align-items-center tcn-6"> <i
+                            <li><a href="https://vathender.pages.dev/" class="footer-link d-flex align-items-center tcn-6" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">
+                                    <i class="ti ti-chevron-right" ></i> Contact Developer</a></li>
+                            <li><a href="teams.html" class="footer-link d-flex align-items-center tcn-6" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;"> <i
                                         class="ti ti-chevron-right"></i> Teams</a></li>
-                            <li><a href="faq.html" class="footer-link d-flex align-items-center tcn-6"> <i
+                            <li><a href="faq.html" class="footer-link d-flex align-items-center tcn-6" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;"> <i
                                         class="ti ti-chevron-right"></i> FAQ</a></li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-3 col-sm-6 br py-lg-20 pt-sm-15 pt-10 footer-card-area">
+                <div class="col-lg-3 col-sm-6 br py-lg-20 pt-sm-15 pt-10 footer-card-area" >
                     <div class="py-lg-10">
-                        <h4 class="footer-title mb-8 title-anim">Explore</h4>
+                        <h4 class="footer-title mb-8 title-anim" >Explore</h4>
                         <ul class="footer-list d-grid gap-4">
-                            <li><a href="#" class="footer-link d-flex align-items-center tcn-6"> <i
+                            <li><a href="#" class="footer-link d-flex align-items-center tcn-6" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;"> <i
                                         class="ti ti-chevron-right"></i> Team Contact</a></li>
-                            <li><a href="chat.html" class="footer-link d-flex align-items-center tcn-6"> <i
+                            <li><a href="chat.html" class="footer-link d-flex align-items-center tcn-6" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;"> <i
                                         class="ti ti-chevron-right"></i> Report an issue</a></li>
-                            <li><a href="profile.html" class="footer-link d-flex align-items-center tcn-6"> <i
+                            <li><a href="profile.html" class="footer-link d-flex align-items-center tcn-6" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;"> <i
                                         class="ti ti-chevron-right"></i> Payments </a></li>
                         </ul>
                     </div>
@@ -1217,14 +1206,12 @@
                     <div class="py-lg-10">
                         <h4 class="footer-title mb-8 title-anim">Follow Us</h4>
                         <ul class="footer-list d-grid gap-4">
-                            <li><a href="#" class="footer-link d-flex align-items-center tcn-6"> <i
+                            <li><a href="#" class="footer-link d-flex align-items-center tcn-6" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;"> <i
                                         class="ti ti-chevron-right"></i> Discord</a></li>
-                            <li><a href="#" class="footer-link d-flex align-items-center tcn-6"> <i
+                            <li><a href="#" class="footer-link d-flex align-items-center tcn-6" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;"> <i
                                         class="ti ti-chevron-right"></i> Instagram</a></li>
-                            <li><a href="#" class="footer-link d-flex align-items-center tcn-6"> <i
-                                        class="ti ti-chevron-right"></i> Twitter</a></li>
-                            <li><a href="#" class="footer-link d-flex align-items-center tcn-6"> <i
-                                        class="ti ti-chevron-right"></i> Linkedln</a></li>
+                            <li><a href="#" class="footer-link d-flex align-items-center tcn-6" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;"> <i
+                                        class="ti ti-chevron-right"></i> Youtube</a></li>
                         </ul>
                     </div>
                 </div>
@@ -1247,35 +1234,28 @@
 
     <!-- ==== js dependencies start ==== -->
     <script>
-     document.addEventListener('DOMContentLoaded', function() {
-    const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
-            if (!userInfo) {
-                // If no user info is found, redirect to sign-in page
-                window.location.href = "signin.html";
+        // This could be used to trigger the login event, where userInfo is stored
+        const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+        if (!userInfo) {
+                document.getElementById('displayName').textContent = "Guest";
+                document.getElementById('userNameDisplay').textContent = "Guest";
+                
             }
-    if (userInfo) {
-        let displayName = userInfo.displayName || "";
+        function handleLoginSuccess(response) {
+            const userInfo = {
+                displayName: response.displayName,
+                email: response.email
+            };
 
-        if (!displayName) {
-            // If the display name is not provided, extract it from the email
-            const email = userInfo.email || "";
-            if (email.includes("@")) {
-                displayName = email.split("@")[0];
-            } else {
-                displayName = "User"; // Default name if email is not valid
-            }
+            // Store the user info
+            storeUserInfo(userInfo);
+
+            // Update the UI
+            document.getElementById('displayName').textContent = userInfo.displayName || userInfo.email;
+            document.getElementById('userNameDisplay').textContent = userInfo.displayName || userInfo.email;
+
+           
         }
-
-        document.getElementById('displayName').textContent = displayName;
-        document.getElementById('userNameDisplay').textContent = displayName; // Set the name in the dropdown
-    } else {
-        // If no user info is found, redirect to sign-in page
-        window.location.href = "signin.html";
-    }
-    window.addEventListener('beforeunload', function() {
-        sessionStorage.clear();
-    });
-});
     </script>
 
     <!-- jquery  -->

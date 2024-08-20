@@ -1,22 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
-<!-- Mirrored from gameplex-final.vercel.app/gameplex-v1-smooth-scroll/tournaments-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 24 Jun 2024 08:24:25 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
-    <title>Tournament Details - GamePlex</title>
+    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+    <title>Deathmatch - Valorant</title>
+    <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
+    <style>
+        /* Overlay Background */
+        .custom-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9); /* Black background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000; /* High z-index to appear on top */
+        }
+
+        /* Overlay Content */
+        .overlay-content {
+            background: transparent; /* Transparent background for content */
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center; /* Align items in a row */
+            max-width: 800px;
+            width: 100%;
+            color: white; /* Ensure all text inside is white */
+            flex-direction: column; /* Default to column layout for mobile */
+        }
+
+        /* Left side (QR Code) */
+        .overlay-left {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px; /* Add space between elements */
+        }
+
+        .qr-image {
+            max-width: 100%;
+            height: auto;
+            max-height: 300px;
+        }
+
+        /* Right side (Buttons) */
+        .overlay-right {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .overlay-right button, .overlay-right a {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px 0;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        /* Text at the Bottom of the Overlay */
+        .overlay-bottom-text {
+            color: white; /* White text for contrast against black background */
+            margin-top: 20px;
+            text-align: center;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        /* Adjust layout for larger screens */
+        @media(min-width: 768px) {
+            .overlay-content {
+                flex-direction: row; /* Side-by-side layout on larger screens */
+            }
+
+            .overlay-left {
+                margin-bottom: 0;
+            }
+
+            .overlay-right {
+                width: 50%;
+            }
+        }
+    </style>    
     <link rel="stylesheet" href="assets/css/bootstrap.css">
     <link rel="stylesheet" href="assets/css/style.css">
+ <!-- Place this within the <head> section of your deathmatch.html -->
+
+   
+    
 </head>
+<script>
+ document.addEventListener('DOMContentLoaded', function() {
+    const userInfo = JSON.parse(localStorage.getItem('userInfo') || sessionStorage.getItem('userInfo'));
+
+    if (userInfo) {
+        let displayName = userInfo.displayName || "";
+
+        if (!displayName && userInfo.email) {
+            const email = userInfo.email;
+            if (email.includes("@")) {
+                displayName = email.split("@")[0];
+            } else {
+                displayName = email;
+            }
+        }
+
+        document.getElementById('displayName').textContent = displayName;
+        document.getElementById('userNameDisplay').textContent = displayName;
+    } else {
+        // If no user is logged in, you can handle this by showing a default name like "Guest"
+        document.getElementById('displayName').textContent = "Guest";
+        document.getElementById('userNameDisplay').textContent = "Guest";
+    }
+});
+
+function logout() {
+    localStorage.removeItem('userInfo');
+    sessionStorage.removeItem('userInfo');
+    window.location.href = 'signin.html';
+}
+
+</script>
 
 <body>
 
 
-
+    
     <!-- cursor effect-->
     <div class="cursor"></div>
     <!-- Header area  -->
@@ -33,7 +151,7 @@
                             <span></span>
                             <span></span>
                         </button>
-                        <a class="navbar-brand d-flex align-items-center gap-4" href="index.html">
+                        <a class="navbar-brand d-flex align-items-center gap-4" href="Index2.html   ">
                             <img class="w-150 logo1" src="assets/img/Limitless.png" alt="favicon">
                             <img class="w-100 logo2" src="assets/img/Limitless_transparent.png" alt="logo">
                         </a>
@@ -41,53 +159,20 @@
                     <div class="navbar-toggle-item w-100 position-lg-relative">
                         <ul class="custom-nav gap-3 gap-lg-7 cursor-scale growDown2 ms-xxl-10" data-lenis-prevent>
                             <li class="menu-link">
-                                <a href="index.html" , style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Home</a>
+                                <a href="Index2.html" , style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Home</a>
                             </li>
-                            <li class="menu-item">
-                                <button style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Tournament</button>
-                                <ul class="sub-menu">
-                                    <li class="menu-link">
-                                        <a href="tournaments.html" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Tournaments</a>
-                                    </li>
-                                    <li class="menu-link">
-                                        <a href="tournaments-details.html" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Tournaments Details</a>
-                                    </li>
-                                </ul>
+                            <li class="menu-list">
+                                <a style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Tournament</a>
+                                
                             </li>
                             <li class="menu-link">
                                 <a href="game.html" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Game</a>
                             </li>
-                            <li class="menu-item">
-                                <button>Teams</button>
-                                <ul class="sub-menu">
-                                    <li class="menu-link">
-                                        <a href="teams.html" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Teams</a>
-                                    </li>
-                                    <li class="menu-link">
-                                        <a href="teams-details.html" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Teams Details</a>
-                                    </li>
-                                </ul>
+                            <li class="menu-list">
+                                <a  style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Teams</a>
+                                
                             </li>
-                            <li class="menu-item">
-                                <button style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;" >pages</button>
-                                <ul class="sub-menu">
-                                    <li class="menu-link">
-                                        <a href="signup.html" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Sign Up</a>
-                                    </li>
-                                    <li class="menu-link">
-                                        <a href="signin.html" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Sign In</a>
-                                    </li>
-                                    <li class="menu-link">
-                                        <a href="error.html" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Error</a>
-                                    </li>
-                                    <li class="menu-link">
-                                        <a href="faq.html" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Faq</a>
-                                    </li>
-                                    <li class="menu-link">
-                                        <a href="terms-condition.html" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Terms Conditions</a>
-                                    </li>
-                                </ul>
-                            </li>
+                            
                         </ul>
                     </div>
                 </nav>
@@ -230,29 +315,11 @@
     <!-- user account details popup start  -->
     <div class="user-account-popup p-4">
         <div class="account-items d-grid gap-1" data-tilt>
-
-            <div class="user-level-area p-3">
-                <div class="user-info d-between">
-                    <span class="user-name fs-five">David Malan</span>
-                    <div class="badge d-flex align-items-center">
-                        <i class="ti ti-medal fs-three fs-normal tcp-2"></i>
-                        <i class="ti ti-medal fs-three fs-normal tcp-2"></i>
-                        <i class="ti ti-medal fs-three fs-normal tcp-2"></i>
-                    </div>
-                </div>
-                <div class="user-level">
-                    <span class="level-title tcn-6">Level</span>
-                    <div class="level-bar my-1">
-                        <div class="level-progress" style="width: 30%;"></div>
-                    </div>
-                </div>
-            </div>
-            <a href="profile.html" class="account-item">View Profile</a>
-
-            <a href="chat.html" class="account-item">Message</a>
-            <button class="bttn account-item">Logout</button>
+        
+            <div id="userNameDisplay" class="mb-3" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif; font-weight: bold; color: white;"></div>
+          <button class="bttn account-item" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;" onclick="logout()" style="font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Logout</button>
         </div>
-    </div>
+    </div>>Logout</button>
     <!-- user account details popup end  -->
 
     <!-- tournament details banner section start -->
@@ -311,9 +378,33 @@
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-center gap-md-6 gap-3">
-                                    <a href="tournaments.html"
+                                    <a href="#" id = "registerNowButton"
                                         class="btn-half-border position-relative d-inline-block py-2 bgp-1 px-sm-6 px-4 rounded-pill" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Register
                                         Now</a>
+                                        <br>
+                                             <!-- Overlay Structure -->
+                                             <div id="registrationOverlay" class="custom-overlay" style="display: none;">
+                                                <div class="overlay-content">
+                                                    <!-- Left Side: QR Code -->
+                                                    <div class="overlay-left">
+                                                        <canvas id="qrCode"></canvas>
+                                                    </div>
+                                                    <!-- Right Side: Buttons -->
+                                                    <div class="overlay-right">
+                                                        <button class="btn-half-border position-relative d-inline-block py-2 bgp-1 px-sm-6 px-4 rounded-pill" onclick="closeOverlay()" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Cancel</button>
+                                                        <a id="upiLink" class="btn-half-border position-relative d-inline-block py-2 bgp-1 px-sm-6 px-4 rounded-pill" target="_blank" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Mobile Payments <span class="ti ti-brand-apple"></span>/<span class="ti ti-brand-android"></span></a>
+                                                        <button class="btn-half-border position-relative d-inline-block py-2 bgp-1 px-sm-6 px-4 rounded-pill" onclick="handleNext()" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Next</button>
+                                                    </div>
+                                                </div>
+                                                <!-- Bottom Text -->
+                                                 
+                                                <div class="overlay-bottom-text" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;"><b>Scan the QR code for payment in Pc (or) click and use the "mobile payment" button to continue on mobile</b><hr><br><b>Make note of the "UPI id" as it is required for verification in the upcoming steps</b><br>
+                                                <hr>
+                                                    <b>After completing the payment click the "Next" button to enter yours/team details</b><hr>
+                                                </div>
+                                            </div>
+
+
                                     <div class="d-flex align-items-center flex-wrap gap-md-6 gap-3 w-50">
                                         <div class="end-date">
                                             <span class="tcn-6" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Starts At July 07, 5:10 PM</span>
@@ -397,8 +488,8 @@
                     </div>
                     <div class="tour-reg-content-area">
                         <h4 class="tcn-1 cursor-scale growDown title-anim mb-2">Registration Open</h4>
-                        <span class="tcn-6 d-block mb-5">Register now to play in the tournament.</span>
-                        <span class="date rounded py-2 px-3">OCT 04 - NOV 25</span>
+                        <span class="tcn-6 d-block mb-5"style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Register now to play in the tournament.</span>
+                        <span class="date rounded py-2 px-3" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">OCT 04 - NOV 25</span>
                     </div>
                 </div>
                 <div class="col trp-box">
@@ -415,9 +506,9 @@
                         </div>
                     </div>
                     <div class="tour-reg-content-area">
-                        <h4 class="tcn-1 cursor-scale growDown title-anim mb-2">Registration Closed</h4>
-                        <span class="tcn-6 d-block mb-5">Creating the brackets we'll start soon</span>
-                        <span class="date rounded py-2 px-3">OCT 07</span>
+                        <h4 class="tcn-1 cursor-scale growDown title-anim mb-2" >Registration Closed</h4>
+                        <span class="tcn-6 d-block mb-5" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Creating the brackets we'll start soon</span>
+                        <span class="date rounded py-2 px-3" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">OCT 07</span>
                     </div>
                 </div>
                 <div class="col trp-box">
@@ -435,8 +526,8 @@
                     </div>
                     <div class="tour-reg-content-area">
                         <h4 class="tcn-1 cursor-scale growDown title-anim mb-2">Playing</h4>
-                        <span class="tcn-6 d-block mb-5">Register now to play in the tournament.</span>
-                        <span class="date rounded py-2 px-3">OCT 07 - OCT 31</span>
+                        <span class="tcn-6 d-block mb-5" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Register now to play in the tournament.</span>
+                        <span class="date rounded py-2 px-3" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">OCT 07 - OCT 31</span>
                     </div>
                 </div>
                 <!-- <div class="col trp-box">
@@ -472,9 +563,9 @@
                         </div>
                     </div>
                     <div class="tour-reg-content-area">
-                        <h4 class="tcn-1 cursor-scale growDown title-anim mb-2">Finished</h4>
-                        <span class="tcn-6 d-block mb-5">Tournament finished Prizes are on their way.</span>
-                        <span class="date rounded py-2 px-3">OCT 31</span>
+                        <h4 class="tcn-1 cursor-scale growDown title-anim mb-2" >Finished</h4>
+                        <span class="tcn-6 d-block mb-5" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Tournament finished Prizes are on their way.</span>
+                        <span class="date rounded py-2 px-3" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">OCT 31</span>
                     </div>
                 </div>
                 <div class="col trp-box">
@@ -492,8 +583,8 @@
                     </div>
                     <div class="tour-reg-content-area">
                         <h4 class="tcn-1 cursor-scale growDown title-anim mb-2">Paid</h4>
-                        <span class="tcn-6 d-block mb-5">Payments sent to the winners. Congrats!</span>
-                        <span class="date rounded py-2 px-3">OCT 04 - NOV 25</span>
+                        <span class="tcn-6 d-block mb-5" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Payments sent to the winners. Congrats!</span>
+                        <span class="date rounded py-2 px-3" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">OCT 04 - NOV 25</span>
                     </div>
                 </div>
             </div>
@@ -507,7 +598,7 @@
             <div class="singletab tournaments-tab">
                 <ul class="tablinks d-flex flex-wrap align-items-center gap-3 pb-10">
                 
-                    <li class="nav-links active">
+                    <li class="nav-links ">
                         <button class="tablink py-sm-3 py-2 px-sm-8 px-6 rounded-pill tcn-1" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Players</button>
                     </li>
                     <li class="nav-links">
@@ -637,8 +728,10 @@
                                     <span class="tcn-1" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Match 1 -</span>
                                     <span class="tcn-1" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Noxiboi</span>
                                 </div>
+                                
                             </li>
                             </ul>
+                            
                         <div class="row align-items-center justify-content-center pt-lg-20 pt-sm-10">
                             <div class="col-lg-4 col-sm-6">
                                 <div class="d-grid justify-content-center align-items-center gap-10">
@@ -665,18 +758,19 @@
                                     <h5 class="acc-header-area">
                                         <button class="accordion-btn rule-acc-btn fs-four position-relative ps-8"
                                             type="button">
-                                            Paritdas
+                                            Payout Distribution
                                         </button>
                                     </h5>
                                     <div class="acc-content-area">
-                                        <div class="content-body mt-lg-6 mt-4">
-                                            <p class="tcn-6">
-                                                Molestias excepturi sint occaecati cupiditate non provident,
-                                                similique
-                                                sunt in culpa qui officia deserunt mollitia animi, id est
-                                                laborum et
-                                                dolorum fuga. Et harum quidem
-                                                rerum facilis est et expedita distinctio.
+                                        <div class="content-body mt-lg-6 mt-4" >
+                                            <p class="tcn-6" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">
+                                                1 st Position - Winner - ₹ 100
+                                                <br>
+                                                2 nd Position - Runner Up - ₹ 70
+                                                <br>
+                                                3 rd Position - Second Runner Up - ₹ 50
+                                                <br>
+                                                4 th Position - Third Runner Up - ₹ 30
                                             </p>
                                         </div>
                                     </div>
@@ -685,21 +779,28 @@
                                     <h5 class="acc-header-area">
                                         <button class="accordion-btn rule-acc-btn fs-four position-relative ps-8"
                                             type="button">
-                                            Reglamento
+                                            Rules
                                         </button>
                                     </h5>
                                     <div class="acc-content-area">
                                         <div class="content-body mt-lg-6 mt-4">
-                                            <ol class="tcn-6 lower-alpha-right-parentheses d-grid gap-3">
-                                                <li>Treat all members and staff with courtesy and respect.
-                                                    Discriminatory or offensive behavior will not be tolerated.
+                                            <ol class="tcn-6 lower-alpha-right-parentheses d-grid gap-3" >
+                                                <li style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">
+                                                    Members who are verified by the team lead and staff will only be allowed.
+                                                    This includes verification of registration before the deadline 
                                                 </li>
-                                                <li>Communication Maintain open and constructive communication.
-                                                    Address concerns through the appropriate channels.</li>
-                                                <li>Emergency Procedures: Familiarize yourself with evacuation
-                                                    procedures and the location of emergency exits.</li>
-                                                <li>Safeguard sensitive information and respect the privacy of
+                                                <li style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">
+                                                    Treat all members and staff with courtesy and respect.
+                                                    offensive behavior will lead to disqualification.
+                                                </li>
+                                                <li  style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">
+                                                    Address concerns through the appropriate channels in the discord.
+                                                    Please maintain a professional demeanor and avoid engaging in conflicts with other team members.
+                                                </li>
+                                                <li style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Safeguard sensitive information and respect the privacy of
                                                     others.</li>
+
+                                                    <li style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">If a player is unable to attend the tournament on time, partial refund will be issued to the player.</li>
                                             </ol>
                                         </div>
                                     </div>
@@ -708,21 +809,14 @@
                                     <h5 class="acc-header-area">
                                         <button class="accordion-btn rule-acc-btn fs-four position-relative ps-8"
                                             type="button">
-                                            Discord
+                                            Help
                                         </button>
                                     </h5>
                                     <div class="acc-content-area">
                                         <div class="content-body mt-lg-6 mt-4">
-                                            <p>Molestias excepturi sint occaecati cupiditate non provident,
-                                                similique
-                                                sunt in culpa qui
-                                                officia
-                                                deserunt mollitia animi, id est laborum et dolorum fuga. Et
-                                                harum
-                                                quidem
-                                                rerum facilis
-                                                est et
-                                                expedita distinctio.</p>
+                                            <p style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">To contact staff join our Discord and mention your query</p>
+                                            <br>
+                                            <a class="btn-half-border position-relative d-inline-block py-2 bgp-1 px-sm-6 px-4 rounded-pill" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;"href="www.google.com">Discord</a>
                                         </div>
                                     </div>
                                 </div>
@@ -736,43 +830,7 @@
     <!-- tournament more details section end -->
 
     <!-- call to action section start -->
-    <div class="call-to-action pt-120 pb-120 bgn-4 overflow-x-hidden" id="cta">
-        <div class="container">
-            <div class="row justify-content-between g-6">
-                <div class="col-lg-6">
-                    <span class="display-three tcn-1 cursor-scale growUp mb-8 d-block title-anim">Stay up to
-                        date</span>
-                    <span class="fs-lg tcn-6">
-                        Have questions or feedback? We'd love to hear from you. Reach out to our team or use our
-                        contact
-                        form.
-                    </span>
-                </div>
-                <div class="col-xl-5 col-lg-6">
-                    <form action="#">
-                        <div class="single-input mb-6">
-                            <input type="email" placeholder="Enter your email">
-                        </div>
-                        <div
-                            class="d-flex align-items-md-center align-items-start justify-content-between gap-lg-8 gap-6 flex-md-row flex-column">
-                            <div class="d-flex align-items-center gap-lg-4 gap-2">
-                                <label class="custom-checkbox">
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <span class="fs-base tcn-6">I agree with <a href="#" class="tcp-1">Privacy
-                                        Policy</a>
-                                    and <a href="terms-condition.html" class="tcp-1">Terms & Conditions</a>
-                                </span>
-                            </div>
-                            <button type="submit"
-                                class="bttn py-sm-4 py-3 px-lg-10 px-sm-8 px-6 bgp-1 tcn-1 rounded-4">Submit</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <!-- call to action section end -->
 
     <!-- footer section start  -->
@@ -784,29 +842,23 @@
                         <div class="footer-logo mb-8">
                             <a href="#" class="d-grid gap-6">
                                 <div class="flogo-1">
-                                    <img class="w-100" src="assets/img/logo2.png" alt="favicon">
+
                                 </div>
                                 <div class="flogo-2">
-                                    <img class="w-100" src="assets/img/logo.png" alt="logo">
+                                    <img class="w-100" src="assets/img/Limitless_transparent.png" alt="logo">
                                 </div>
                             </a>
                         </div>
                         <div class="social-links">
                             <ul class="d-flex align-items-center gap-3 flex-wrap">
                                 <li>
-                                    <a href="#"><i class="ti ti-brand-facebook fs-2xl"></i></a>
+                                    <a href="#"><i class="ti ti-brand-discord fs-2xl"></i></a>
                                 </li>
                                 <li>
                                     <a href="#"><i class="ti ti-brand-twitter fs-2xl"></i></a>
                                 </li>
                                 <li>
                                     <a href="#"><i class="ti ti-brand-youtube fs-2xl"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="ti ti-brand-linkedin fs-2xl"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="ti ti-brand-instagram fs-2xl"></i></a>
                                 </li>
                             </ul>
                         </div>
@@ -816,27 +868,25 @@
                     <div class="py-lg-10">
                         <h4 class="footer-title mb-8 title-anim">Quick Links</h4>
                         <ul class="footer-list d-grid gap-4">
-                            <li><a href="tournaments.html" class="footer-link d-flex align-items-center tcn-6">
-                                    <i class="ti ti-chevron-right"></i> Tournaments</a></li>
-                            <li><a href="game.html" class="footer-link d-flex align-items-center tcn-6"> <i
-                                        class="ti ti-chevron-right"></i> Games </a></li>
-                            <li><a href="teams.html" class="footer-link d-flex align-items-center tcn-6"> <i
+                            <li><a href="https://vathender.pages.dev/" class="footer-link d-flex align-items-center tcn-6" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">
+                                    <i class="ti ti-chevron-right" ></i> Contact Developer</a></li>
+                            <li><a href="teams.html" class="footer-link d-flex align-items-center tcn-6" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;"> <i
                                         class="ti ti-chevron-right"></i> Teams</a></li>
-                            <li><a href="faq.html" class="footer-link d-flex align-items-center tcn-6"> <i
+                            <li><a href="faq.html" class="footer-link d-flex align-items-center tcn-6" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;"> <i
                                         class="ti ti-chevron-right"></i> FAQ</a></li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-3 col-sm-6 br py-lg-20 pt-sm-15 pt-10 footer-card-area">
+                <div class="col-lg-3 col-sm-6 br py-lg-20 pt-sm-15 pt-10 footer-card-area" >
                     <div class="py-lg-10">
-                        <h4 class="footer-title mb-8 title-anim">Explore</h4>
+                        <h4 class="footer-title mb-8 title-anim" >Explore</h4>
                         <ul class="footer-list d-grid gap-4">
-                            <li><a href="#" class="footer-link d-flex align-items-center tcn-6"> <i
-                                        class="ti ti-chevron-right"></i> Top Players</a></li>
-                            <li><a href="chat.html" class="footer-link d-flex align-items-center tcn-6"> <i
-                                        class="ti ti-chevron-right"></i> messages</a></li>
-                            <li><a href="profile.html" class="footer-link d-flex align-items-center tcn-6"> <i
-                                        class="ti ti-chevron-right"></i> Profile</a></li>
+                            <li><a href="#" class="footer-link d-flex align-items-center tcn-6" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;"> <i
+                                        class="ti ti-chevron-right"></i> Team Contact</a></li>
+                            <li><a href="chat.html" class="footer-link d-flex align-items-center tcn-6" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;"> <i
+                                        class="ti ti-chevron-right"></i> Report an issue</a></li>
+                            <li><a href="profile.html" class="footer-link d-flex align-items-center tcn-6" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;"> <i
+                                        class="ti ti-chevron-right"></i> Payments </a></li>
                         </ul>
                     </div>
                 </div>
@@ -844,39 +894,79 @@
                     <div class="py-lg-10">
                         <h4 class="footer-title mb-8 title-anim">Follow Us</h4>
                         <ul class="footer-list d-grid gap-4">
-                            <li><a href="#" class="footer-link d-flex align-items-center tcn-6"> <i
-                                        class="ti ti-chevron-right"></i> Facebook</a></li>
-                            <li><a href="#" class="footer-link d-flex align-items-center tcn-6"> <i
+                            <li><a href="#" class="footer-link d-flex align-items-center tcn-6" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;"> <i
+                                        class="ti ti-chevron-right"></i> Discord</a></li>
+                            <li><a href="#" class="footer-link d-flex align-items-center tcn-6" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;"> <i
                                         class="ti ti-chevron-right"></i> Instagram</a></li>
-                            <li><a href="#" class="footer-link d-flex align-items-center tcn-6"> <i
-                                        class="ti ti-chevron-right"></i> Twitter</a></li>
-                            <li><a href="#" class="footer-link d-flex align-items-center tcn-6"> <i
-                                        class="ti ti-chevron-right"></i> Linkedln</a></li>
+                            <li><a href="#" class="footer-link d-flex align-items-center tcn-6" style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;"> <i
+                                        class="ti ti-chevron-right"></i> Youtube</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="row pb-4 pt-lg-4 pt-8 justify-content-between g-2">
                 <div class="col-xxl-4 col-lg-6 order-last order-lg-first">
-                    <span>Copyright © <span class="currentYear"></span> GamePlex | Designed by <a
-                            href="https://themeforest.net/user/pixelaxis" class="tcp-1">Pixelaxis </a></span>
+                    <span style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Copyright © <span class="currentYear"style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;"></span> Limitless </span>
                 </div>
                 <div class="col-xxl-3 col-lg-5">
                     <ul class="d-flex align-items-center gap-lg-10 gap-sm-6 gap-4">
-                        <li><a href="terms-condition.html">Terms & Conditions</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="terms-condition.html"style=" font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;">Terms & Conditions</a></li>
+                       
                     </ul>
                 </div>
             </div>
         </div>
-        <!-- footer banner img  -->
-        <div class="footer-banner-img" id="faa">
-            <img class="w-100" src="assets/img/fbanner.png" alt="banner">
-        </div>
-    </footer>
-    <!-- footer section end  -->
+
  <script>
-    
+document.addEventListener('DOMContentLoaded', function () {
+    const userInfo = JSON.parse(localStorage.getItem('userInfo') || sessionStorage.getItem('userInfo'));
+
+    if (userInfo) {
+        let displayName = userInfo.displayName || "";
+
+        if (!displayName && userInfo.email) {
+            const email = userInfo.email;
+            if (email.includes("@")) {
+                displayName = email.split("@")[0];
+            } else {
+                displayName = email;
+            }
+        }
+
+        document.getElementById('displayName').textContent = displayName;
+        document.getElementById('userNameDisplay').textContent = displayName;
+    } else {
+        // If no user is logged in, display "Guest" as a default name
+        document.getElementById('displayName').textContent = "Guest";
+        document.getElementById('userNameDisplay').textContent = "Guest";
+
+        // Disable the Register Now button and show the signup popup
+        const registerButton = document.querySelector('.btn-half-border');
+        if (registerButton) {
+            registerButton.addEventListener('click', function (event) {
+                event.preventDefault(); // Prevent the default action
+                alert('Please Register or SignIn to Participate');
+                window.location.href = 'signin.html';
+                
+                // If the user clicks "OK", redirect to signin page
+               
+                    
+                
+              
+            });
+        }
+    }
+
+    // Close signup popup when clicking on the overlay or close button
+    document.querySelector('.wallet-close-btn').addEventListener('click', function () {
+        document.getElementById('signupPopup').style.display = 'none';
+    });
+
+    document.querySelector('.connect-wallet-overlay').addEventListener('click', function () {
+        document.getElementById('signupPopup').style.display = 'none';
+    });
+});
+
     (function () {
   const second = 1000,
     minute = second * 60,
@@ -952,8 +1042,43 @@
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <!-- main js  -->
     <script src="assets/js/main.js"></script>
-</body>
-
+    <script>
+        document.getElementById('registerNowButton').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default link behavior
+    
+            // Define UPI payment details
+            const selectedPrice = '100'; // Example price; replace with dynamic value if needed
+            const upiId = '8838859305@ptaxis'; // Replace with your UPI ID
+            const name = 'Vathender'; // Replace with your name
+            const note = 'Valorant - Deathmatch'; // Note for the payment
+            const transactionRefId = 'T' + Math.floor((Math.random() * 1000000) + 1);
+    
+            const upiLink = `upi://pay?pa=${upiId}&pn=${name}&tn=${note}&am=${selectedPrice}&cu=INR&tr=${transactionRefId}`;
+    
+            // Set UPI link for direct payment
+            document.getElementById('upiLink').href = upiLink;
+    
+            // Generate QR code when the overlay is shown
+            const qr = new QRious({
+                element: document.getElementById('qrCode'),
+                value: upiLink,
+                size: 200
+            });
+    
+            document.getElementById('registrationOverlay').style.display = 'flex'; // Show the overlay
+        });
+    
+        function closeOverlay() {
+            document.getElementById('registrationOverlay').style.display = 'none';
+        }
+    
+        function handleNext() {
+            alert('Next button clicked.');
+            // Add your next step logic here
+        }
+    </script>
+    
+    
 
 <!-- Mirrored from gameplex-final.vercel.app/gameplex-v1-smooth-scroll/tournaments-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 24 Jun 2024 08:24:27 GMT -->
 </html>
